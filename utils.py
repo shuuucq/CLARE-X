@@ -1,10 +1,4 @@
-"""
-Created on Mar 1, 2020
-Pytorch Implementation of LightGCN in
-Xiangnan He et al. LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation
 
-@author: Jianbai Ye (gusye@mail.ustc.edu.cn)
-"""
 import torch
 from torch import nn
 from torch import optim
@@ -30,7 +24,6 @@ def set_random_seed(seed=42):
 
 
 def load_sci_embeddings(filepath):
- # 假设嵌入数据存储在 JSON 文件中
     with open(filepath, 'r') as f:
         data = json.load(f)
     embedding_dict = {key: torch.tensor(value, dtype=torch.float32) for key, value in data.items()}
@@ -51,8 +44,8 @@ def load_data(train_file):
 class ReviewSubmissionDataset(Dataset):
     def __init__(self, train_file, profile_emb, authored_emb, reviewed_emb, sub_emb):
         """
-        :param train_file: 训练文件路径，格式：submission_id reviewer1 reviewer2 ...
-        :param *_emb: 多视图嵌入字典（预加载）
+        :param train_file: 
+        :param *_emb: 
         """
         self.pairs = []  # (submission_id, reviewer_id)
         self.profile_emb = profile_emb
