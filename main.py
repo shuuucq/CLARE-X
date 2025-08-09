@@ -67,20 +67,20 @@ class AttentionFusion(nn.Module):
         return fused
 
 def setup_logger(log_dir, log_filename="training_log"):
-    # 创建logger对象
-    logger = logging.getLogger("TrainingLogger")
-    logger.setLevel(logging.INFO)  # 设置日志级别为INFO
 
-    # 创建文件处理器，将日志写入指定文件
+    logger = logging.getLogger("TrainingLogger")
+    logger.setLevel(logging.INFO)  
+
+
     log_path = os.path.join(log_dir, log_filename)
     file_handler = logging.FileHandler(log_path)
-    file_handler.setLevel(logging.INFO)  # 设置处理器日志级别
+    file_handler.setLevel(logging.INFO)  
 
-    # 创建日志格式
+
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     file_handler.setFormatter(formatter)
 
-    # 将处理器添加到logger中
+
     logger.addHandler(file_handler)
 
     return logger
@@ -92,16 +92,16 @@ class RecommendationSystem(nn.Module):
         self.logger = logger
         self.device = torch.device('cuda:0' if GPU else 'cpu')
         
-        # 获取数据集名称
+
         self.dataset_name = self.model_cfg.get("dataset", "default")
         
-        # 创建日志和结果目录
+
         self.log_dir = f"log/{self.dataset_name}"
         self.result_dir = f"result/{self.dataset_name}"
         os.makedirs(self.log_dir, exist_ok=True)
         os.makedirs(self.result_dir, exist_ok=True)
         
-        # 设置日志文件路径
+
         self.log_path = os.path.join(self.log_dir, "training_log")
         self.result_path = os.path.join(self.result_dir, "results.txt")
         self.profile_emb = load_sci_embeddings(self.model_cfg.get("reviewer_profile_bert"))
@@ -164,18 +164,17 @@ class RecommendationSystem(nn.Module):
         self.max_N = max(int(x) for x in self.model_cfg['item.ranking.topN'])
         self.N = self.model_cfg['item.ranking.topN']
         
-        # 记录配置
+  
         self._log_config()
 
     def _log_config(self):
-        """记录配置信息到日志文件和结果文件"""
-        # 记录到日志
+
         self.logger.info("\n=== Configuration ===")
         for key, value in self.model_cfg.items():
             self.logger.info(f"{key}: {value}")
         self.logger.info("=====================")
 
-        # 记录到 results 文件
+     
         with open(self.result_path, "a") as f:
             f.write("\n=== Configuration ===\n")
             for key, value in self.model_cfg.items():
@@ -226,7 +225,7 @@ class RecommendationSystem(nn.Module):
             collate_fn=lambda batch: collate_fn(batch, submission2id, reviewer2id)
         )
         
-        # 训练进度条
+
         pbar = tqdm(range(1, epochs + 1), desc="Training Progress")
         
         for ep in pbar:
@@ -272,7 +271,7 @@ class RecommendationSystem(nn.Module):
                     views_q_proj['light_item'], return_alignment=False
                 )
                 
-                # ---------- 硬负样本采样 ----------
+
                 B = fused_submission_emb.size(0)
                 pos_mask = torch.zeros(B, B, dtype=torch.bool, device=self.device)
                 pos_mask = batch_rev_ids.unsqueeze(0) == batch_rev_ids.unsqueeze(1)
@@ -281,7 +280,6 @@ class RecommendationSystem(nn.Module):
                 pos_count = pos_mask.sum(dim=1).clamp(min=1)
                 l_pos = sim_pos.sum(dim=1) / pos_count
 
-                # 负样本：屏蔽正样本
                 sim_matrix[pos_mask] = -1e9
                 topk_neg_score, _ = torch.topk(sim_matrix, k=self.k, dim=1)  # [B, 5]
 
@@ -302,22 +300,21 @@ class RecommendationSystem(nn.Module):
                         all_reviewer_embs[rid] = fused_reviewer_emb[i]
                         seen_reviewer_ids.add(rid.item())
 
-            # 追加 LGCN loss
             final_loss = total_batch_loss + l1 * self.lambda_b
             final_loss.backward()
             optim.step()
 
-            # 更新进度条描述
+
             pbar.set_description(f"Epoch {ep}: Loss {final_loss.item():.4f}")
             
-            # 记录损失
+
             self.logger.info(f"Epoch {ep}: Loss {final_loss.item():.4f}, LGCN loss {l1.item():.6f}, Contrastive loss {total_l2.item():.6f}, Rec loss {total_rec_loss.item():.6f}")
             
-            # 每10个epoch进行一次评估
+  
             if ep % 10 == 0:
                 self.fast_evaluation(ep, all_submission_embs, all_reviewer_embs)
 
-        # 训练结束后进行最终测试
+
         # self.final_test()
         self.logger.info(f"Training completed. Logs saved to: {self.log_dir}/training_log.txt")
 
@@ -376,7 +373,7 @@ class RecommendationSystem(nn.Module):
                 rerank_inputs_all.append(rerank_input)       
 
         measure = ranking_evaluation(self.data.test_set, rec_list, self.N)
-        self.logger.info(f'*Load Performance*: {", ".join([m.strip() for m in  measure])}')  # 保存原始字符串
+        self.logger.info(f'*Load Performance*: {", ".join([m.strip() for m in  measure])}')  
 
         rerank_inputs_list = asyncio.run(rerank.run_rerank_with_gpt_batch(rerank_inputs_all))
         # Perform ranking evaluation
@@ -387,17 +384,12 @@ class RecommendationSystem(nn.Module):
         performance = measure
         rerank_performance = rerank_measure
 
-        self.logger.info(f'Real-Time Ranking Performance (Top-{self.max_N} Item Recommendation)')
-        self.logger.info(f'*Load Performance*: {", ".join([m.strip() for m in performance])}')  # 保存原始字符串
-        self.logger.info(f'*Rerank Performance*: {", ".join([m.strip() for m in rerank_performance])}')  # 保存原始字符串
 
-        # 保存结果到文件
         with open(self.result_path, "a") as f:
             f.write("\n=== Final Test Results ===\n")
-            f.write(f'*Load Performance*: {", ".join([m.strip() for m in performance])}\n')  # 写入原始格式
+            f.write(f'*Load Performance*: {", ".join([m.strip() for m in performance])}\n')  
             f.write(f"*Rerank Performance*: {', '.join([m.strip() for m in rerank_performance])}\n")
 
-        # 返回结果
         return rec_list
     
 
@@ -509,36 +501,33 @@ class RecommendationSystem(nn.Module):
 
 
     def final_test(self):
-        """训练结束后使用最佳模型进行测试"""
+
         user_emb_path = os.path.join(self.result_dir, f'best_user_emb_{self.dataset_name}.pth')
         item_emb_path = os.path.join(self.result_dir, f'best_item_emb_{self.dataset_name}.pth')
 
-        # 检查文件是否存在并加载嵌入
+   
         if os.path.exists(user_emb_path) and os.path.exists(item_emb_path):
             print("\n=== Running Final Test with Best Model ===")
-            
-            # 加载最佳嵌入
+
             self.best_user_emb = torch.load(user_emb_path)
             self.best_item_emb = torch.load(item_emb_path)
-
-            # 运行重新排序测试
             self.rerank_test(self.best_user_emb, self.best_item_emb)
         else:
             print("Warning: No best model found for final test")
 
 
 def get_logger(name, log_dir):
-    """创建并配置日志记录器"""
+
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
     
-    # 创建文件处理器
+
     os.makedirs(log_dir, exist_ok=True)
     log_file = os.path.join(log_dir, "training.log")
     file_handler = TimedRotatingFileHandler(log_file, when="midnight", interval=1, backupCount=7)
     file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
     
-    # 创建控制台处理器
+
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
     
@@ -548,20 +537,20 @@ def get_logger(name, log_dir):
     return logger
 
 if __name__ == "__main__":
-    # 从命令行参数获取配置文件名
+
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, required=True, help="Path to configuration file")
     parser.add_argument("--epochs", type=int, required=True, help="train epoch")
     args = parser.parse_args()
     
-    # 加载配置
+
     config = ModelConf(args.config)
     
-    # 获取数据集名称
+
     dataset_name = config.config.get("dataset", "default")
     
-    # 创建日志记录器
+
     logger = get_logger("RecSys", f"log/{dataset_name}")
     
     logger.info(f"Starting training for dataset: {dataset_name}")
