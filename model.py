@@ -42,7 +42,6 @@ class MoCoMultiViewContrastive(nn.Module):
     def forward(self, views_q: dict, views_k: dict) -> torch.Tensor:
         batch_size = next(iter(views_q.values())).size(0)
 
-        # 新增支持：包括 light_user 和 light_item
         contrastive_pairs = [
             ("reviewed", "profile"),
             ("reviewed", "authored"),
