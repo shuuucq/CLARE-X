@@ -44,7 +44,6 @@ class MoCoMultiViewContrastive(nn.Module):
 
         # 新增支持：包括 light_user 和 light_item
         contrastive_pairs = [
-            # reviewer 多视图
             ("reviewed", "profile"),
             ("reviewed", "authored"),
             ("reviewed", "submission"),
@@ -54,19 +53,16 @@ class MoCoMultiViewContrastive(nn.Module):
             ("authored", "authored"),
             ("submission", "submission"),
 
-            # # 新增 LightGCN 输出对比
             ("light_user", "submission"),
             ("light_item", "reviewed"),
             ("light_user", "light_user"),
             ("light_item", "light_item")
         ]
 
-        # 仅保留必要视图
         views = set(v for pair in contrastive_pairs for v in pair)
         views_q = {v: views_q[v] for v in views if v in views_q}
         views_k = {v: views_k[v] for v in views if v in views_k}
 
-        # 编码器投影 + normalize
         q = {v: F.normalize(self.encoder_q[v](views_q[v]), dim=1) for v in views_q}
 
         with torch.no_grad():
@@ -85,7 +81,6 @@ class MoCoMultiViewContrastive(nn.Module):
 
             l_pos = torch.einsum('nc,nc->n', [qi, ki])[:, None]
 
-            # 当前 batch 负样本
             current_neg = ki
             if len(self.queues[view_k]) > 0:
                 queue_neg = torch.stack(list(self.queues[view_k]), dim=0).to(qi.device)
@@ -101,7 +96,6 @@ class MoCoMultiViewContrastive(nn.Module):
             loss += F.cross_entropy(logits, labels)
             pair_count += 1
 
-                # 更新负样本队列
             for view in k:
                 self.queues[view].extend(k[view].detach().cpu())
 
@@ -114,7 +108,6 @@ class LightGCN(nn.Module):
         self.data=data
         args = self.config['LightGCN']
         self.n_layers = int(args['n_layer'])
-        # self.LightGCN_emb_size = int(args['embedding_dim'])  # 如果你忘记了
         self.norm_adj = self.data.norm_adj
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
