@@ -5,7 +5,7 @@ import logging
 class ModelConf(object):
     def __init__(self, file, logger=None):
         self.config = {}
-        self.logger = logger  # 将 logger 作为参数传递给类
+        self.logger = logger  
         self.read_configuration(file)
 
     def __getitem__(self, item):
@@ -24,7 +24,6 @@ class ModelConf(object):
         with open(file, 'r') as f:
             try:
                 self.config = yaml.safe_load(f)
-                # 记录配置字典内容，确保 logger 可用
                 if self.logger:
                     self.logger.info(f"Configuration loaded: {self.config}")
             except yaml.YAMLError as exc:
