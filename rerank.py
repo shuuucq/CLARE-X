@@ -5,7 +5,7 @@ import re
 import logging
 from tqdm.asyncio import tqdm_asyncio
 
-# 配置日志等级
+
 logging.basicConfig(level=logging.INFO)
 
 OLLAMA_API_URL = ""
@@ -15,7 +15,6 @@ REQUEST_TIMEOUT = 100
 BATCH_DELAY = 0.2
 
 # =====================
-# 调用模型 API
 # =====================
 async def call_ollama_for_rerank(session, prompt, system_prompt, semaphore):
     headers = {"Content-Type": "application/json"}
@@ -58,7 +57,6 @@ def extract_and_convert_ranked_response(content: str, user_id: str):
     for line in lines:
         line = line.strip()
         
-        # 匹配有 reason 的格式：1. Reviewer 123: some reason
         match_with_reason = re.match(r"(\d+)\.\s*Reviewer\s+(\d+):\s*(.+)", line)
         if match_with_reason:
             rank = int(match_with_reason.group(1))
@@ -67,7 +65,6 @@ def extract_and_convert_ranked_response(content: str, user_id: str):
             results.append((reviewer_id, rank, reason))
             continue
 
-        # 匹配没有 reason 的格式：11. Reviewer 456
         match_no_reason = re.match(r"(\d+)\.\s*Reviewer\s+(\d+)", line)
         if match_no_reason:
             rank = int(match_no_reason.group(1))
@@ -85,7 +82,6 @@ def extract_and_convert_ranked_response(content: str, user_id: str):
 
 
 # =====================
-# 构建 prompt
 # =====================
 def build_prompt(submission, candidates):
     input_data = {
@@ -123,7 +119,6 @@ def build_prompt(submission, candidates):
 
 
 # =====================
-# 主执行函数
 # =====================
 async def run_rerank_with_gpt_batch(input_samples):
     rerank_results = {}
