@@ -1,0 +1,276 @@
+2025-08-05 10:06:28,347 - INFO - Starting training for dataset: nips
+2025-08-05 10:06:28,348 - INFO - Using configuration: nips.yaml
+2025-08-05 10:06:28,856 - INFO - 
+=== Configuration ===
+2025-08-05 10:06:28,856 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-05 10:06:28,856 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-05 10:06:28,856 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-05 10:06:28,856 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-05 10:06:28,856 - INFO - train: dataset/nips/train.txt
+2025-08-05 10:06:28,856 - INFO - valid: dataset/nips/valid.txt
+2025-08-05 10:06:28,856 - INFO - test: dataset/nips/test.txt
+2025-08-05 10:06:28,856 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-05 10:06:28,856 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-05 10:06:28,856 - INFO - dataset: nips
+2025-08-05 10:06:28,856 - INFO - proj_dim: 768
+2025-08-05 10:06:28,856 - INFO - temperature: 0.1
+2025-08-05 10:06:28,856 - INFO - momentum: 0.999
+2025-08-05 10:06:28,857 - INFO - queue_size: 1024
+2025-08-05 10:06:28,857 - INFO - LightGCN_lr: 0.01
+2025-08-05 10:06:28,857 - INFO - contrastive_lr: 0.001
+2025-08-05 10:06:28,857 - INFO - lambda_a: 0.1
+2025-08-05 10:06:28,857 - INFO - lambda_b: 10
+2025-08-05 10:06:28,857 - INFO - feat_dropout: 0.1
+2025-08-05 10:06:28,857 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-05 10:06:28,857 - INFO - log_interval: 5
+2025-08-05 10:06:28,857 - INFO - k: 1
+2025-08-05 10:06:28,857 - INFO - batshsize: 64
+2025-08-05 10:06:28,857 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-05 10:06:28,857 - INFO - output: ./results/
+2025-08-05 10:06:28,857 - INFO - =====================
+2025-08-05 10:06:32,857 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 10:10:02,249 - INFO - Real-Time Ranking Performance (Top-20 Item Recommendation)
+2025-08-05 10:10:02,250 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 10:10:02,250 - INFO - *Rerank Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.38039, Top 10, Hit Ratio:0.5, Precision:0.05714, Recall:0.5, NDCG:0.34627, Top 5, Hit Ratio:0.3125, Precision:0.07143, Recall:0.28571, NDCG:0.27552
+2025-08-05 10:11:22,800 - INFO - Starting training for dataset: nips
+2025-08-05 10:11:22,800 - INFO - Using configuration: nips.yaml
+2025-08-05 10:11:23,319 - INFO - 
+=== Configuration ===
+2025-08-05 10:11:23,320 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-05 10:11:23,320 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-05 10:11:23,320 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-05 10:11:23,320 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-05 10:11:23,320 - INFO - train: dataset/nips/train.txt
+2025-08-05 10:11:23,320 - INFO - valid: dataset/nips/valid.txt
+2025-08-05 10:11:23,320 - INFO - test: dataset/nips/test.txt
+2025-08-05 10:11:23,320 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-05 10:11:23,320 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-05 10:11:23,320 - INFO - dataset: nips
+2025-08-05 10:11:23,320 - INFO - proj_dim: 768
+2025-08-05 10:11:23,320 - INFO - temperature: 0.1
+2025-08-05 10:11:23,320 - INFO - momentum: 0.999
+2025-08-05 10:11:23,320 - INFO - queue_size: 1024
+2025-08-05 10:11:23,320 - INFO - LightGCN_lr: 0.01
+2025-08-05 10:11:23,320 - INFO - contrastive_lr: 0.001
+2025-08-05 10:11:23,320 - INFO - lambda_a: 0.1
+2025-08-05 10:11:23,320 - INFO - lambda_b: 10
+2025-08-05 10:11:23,320 - INFO - feat_dropout: 0.1
+2025-08-05 10:11:23,321 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-05 10:11:23,321 - INFO - log_interval: 5
+2025-08-05 10:11:23,321 - INFO - k: 1
+2025-08-05 10:11:23,321 - INFO - batshsize: 64
+2025-08-05 10:11:23,321 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-05 10:11:23,321 - INFO - output: ./results/
+2025-08-05 10:11:23,321 - INFO - =====================
+2025-08-05 10:11:27,515 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 10:14:55,157 - INFO - Real-Time Ranking Performance (Top-20 Item Recommendation)
+2025-08-05 10:14:55,157 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 10:14:55,157 - INFO - *Rerank Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.405, Top 10, Hit Ratio:0.5, Precision:0.05714, Recall:0.5, NDCG:0.37033, Top 5, Hit Ratio:0.3125, Precision:0.07143, Recall:0.28571, NDCG:0.30188
+2025-08-05 17:42:25,971 - INFO - Starting training for dataset: nips
+2025-08-05 17:42:25,971 - INFO - Using configuration: nips.yaml
+2025-08-05 17:42:26,465 - INFO - 
+=== Configuration ===
+2025-08-05 17:42:26,465 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-05 17:42:26,465 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-05 17:42:26,465 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-05 17:42:26,465 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-05 17:42:26,465 - INFO - train: dataset/nips/train.txt
+2025-08-05 17:42:26,465 - INFO - valid: dataset/nips/valid.txt
+2025-08-05 17:42:26,465 - INFO - test: dataset/nips/test.txt
+2025-08-05 17:42:26,465 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-05 17:42:26,465 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-05 17:42:26,465 - INFO - dataset: nips
+2025-08-05 17:42:26,466 - INFO - proj_dim: 768
+2025-08-05 17:42:26,466 - INFO - temperature: 0.1
+2025-08-05 17:42:26,466 - INFO - momentum: 0.999
+2025-08-05 17:42:26,466 - INFO - queue_size: 1024
+2025-08-05 17:42:26,466 - INFO - LightGCN_lr: 0.01
+2025-08-05 17:42:26,466 - INFO - contrastive_lr: 0.001
+2025-08-05 17:42:26,466 - INFO - lambda_a: 0.1
+2025-08-05 17:42:26,466 - INFO - lambda_b: 10
+2025-08-05 17:42:26,466 - INFO - feat_dropout: 0.1
+2025-08-05 17:42:26,466 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-05 17:42:26,466 - INFO - log_interval: 5
+2025-08-05 17:42:26,466 - INFO - k: 1
+2025-08-05 17:42:26,466 - INFO - batshsize: 64
+2025-08-05 17:42:26,466 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-05 17:42:26,466 - INFO - output: ./results/
+2025-08-05 17:42:26,466 - INFO - =====================
+2025-08-05 17:42:30,746 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 17:45:33,151 - INFO - Real-Time Ranking Performance (Top-20 Item Recommendation)
+2025-08-05 17:45:33,151 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 17:45:33,151 - INFO - *Rerank Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.38157, Top 10, Hit Ratio:0.5, Precision:0.05714, Recall:0.5, NDCG:0.34718, Top 5, Hit Ratio:0.375, Precision:0.08571, Recall:0.35714, NDCG:0.30315
+2025-08-05 17:46:58,754 - INFO - Starting training for dataset: nips
+2025-08-05 17:46:58,754 - INFO - Using configuration: nips.yaml
+2025-08-05 17:46:59,240 - INFO - 
+=== Configuration ===
+2025-08-05 17:46:59,240 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-05 17:46:59,240 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-05 17:46:59,241 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-05 17:46:59,241 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-05 17:46:59,241 - INFO - train: dataset/nips/train.txt
+2025-08-05 17:46:59,241 - INFO - valid: dataset/nips/valid.txt
+2025-08-05 17:46:59,241 - INFO - test: dataset/nips/test.txt
+2025-08-05 17:46:59,241 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-05 17:46:59,241 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-05 17:46:59,241 - INFO - dataset: nips
+2025-08-05 17:46:59,241 - INFO - proj_dim: 768
+2025-08-05 17:46:59,241 - INFO - temperature: 0.1
+2025-08-05 17:46:59,241 - INFO - momentum: 0.999
+2025-08-05 17:46:59,241 - INFO - queue_size: 1024
+2025-08-05 17:46:59,241 - INFO - LightGCN_lr: 0.01
+2025-08-05 17:46:59,241 - INFO - contrastive_lr: 0.001
+2025-08-05 17:46:59,241 - INFO - lambda_a: 0.1
+2025-08-05 17:46:59,241 - INFO - lambda_b: 10
+2025-08-05 17:46:59,241 - INFO - feat_dropout: 0.1
+2025-08-05 17:46:59,241 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-05 17:46:59,241 - INFO - log_interval: 5
+2025-08-05 17:46:59,241 - INFO - k: 1
+2025-08-05 17:46:59,241 - INFO - batshsize: 64
+2025-08-05 17:46:59,241 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-05 17:46:59,241 - INFO - output: ./results/
+2025-08-05 17:46:59,241 - INFO - =====================
+2025-08-05 17:47:03,431 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-05 17:47:35,393 - INFO - Starting training for dataset: nips
+2025-08-05 17:47:35,393 - INFO - Using configuration: nips.yaml
+2025-08-05 17:47:35,904 - INFO - 
+=== Configuration ===
+2025-08-05 17:47:35,904 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-05 17:47:35,904 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-05 17:47:35,904 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-05 17:47:35,904 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-05 17:47:35,904 - INFO - train: dataset/nips/train.txt
+2025-08-05 17:47:35,904 - INFO - valid: dataset/nips/valid.txt
+2025-08-05 17:47:35,904 - INFO - test: dataset/nips/test.txt
+2025-08-05 17:47:35,904 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-05 17:47:35,905 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-05 17:47:35,905 - INFO - dataset: nips
+2025-08-05 17:47:35,905 - INFO - proj_dim: 768
+2025-08-05 17:47:35,905 - INFO - temperature: 0.1
+2025-08-05 17:47:35,905 - INFO - momentum: 0.999
+2025-08-05 17:47:35,905 - INFO - queue_size: 1024
+2025-08-05 17:47:35,905 - INFO - LightGCN_lr: 0.01
+2025-08-05 17:47:35,905 - INFO - contrastive_lr: 0.001
+2025-08-05 17:47:35,905 - INFO - lambda_a: 0.1
+2025-08-05 17:47:35,905 - INFO - lambda_b: 10
+2025-08-05 17:47:35,905 - INFO - feat_dropout: 0.1
+2025-08-05 17:47:35,905 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-05 17:47:35,905 - INFO - log_interval: 5
+2025-08-05 17:47:35,905 - INFO - k: 1
+2025-08-05 17:47:35,905 - INFO - batshsize: 64
+2025-08-05 17:47:35,905 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-05 17:47:35,905 - INFO - output: ./results/
+2025-08-05 17:47:35,905 - INFO - =====================
+2025-08-05 17:47:40,079 - INFO - *Load Performance*: Top 20, Hit Ratio:0.625, Precision:0.03571, Recall:0.64286, NDCG:0.19443, Top 10, Hit Ratio:0.1875, Precision:0.02143, Recall:0.21429, NDCG:0.08266, Top 5, Hit Ratio:0.0625, Precision:0.01429, Recall:0.07143, NDCG:0.03571
+2025-08-09 15:06:44,943 - INFO - Starting training for dataset: nips
+2025-08-09 15:06:44,943 - INFO - Using configuration: nips.yaml
+2025-08-09 15:06:45,424 - INFO - 
+=== Configuration ===
+2025-08-09 15:06:45,424 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-09 15:06:45,424 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-09 15:06:45,424 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-09 15:06:45,424 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-09 15:06:45,424 - INFO - train: dataset/nips/train.txt
+2025-08-09 15:06:45,425 - INFO - valid: dataset/nips/valid.txt
+2025-08-09 15:06:45,425 - INFO - test: dataset/nips/test.txt
+2025-08-09 15:06:45,425 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-09 15:06:45,425 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-09 15:06:45,425 - INFO - dataset: nips
+2025-08-09 15:06:45,425 - INFO - proj_dim: 768
+2025-08-09 15:06:45,425 - INFO - temperature: 0.1
+2025-08-09 15:06:45,425 - INFO - momentum: 0.999
+2025-08-09 15:06:45,425 - INFO - queue_size: 1024
+2025-08-09 15:06:45,425 - INFO - LightGCN_lr: 0.01
+2025-08-09 15:06:45,425 - INFO - contrastive_lr: 0.001
+2025-08-09 15:06:45,425 - INFO - lambda_a: 0.1
+2025-08-09 15:06:45,425 - INFO - lambda_b: 10
+2025-08-09 15:06:45,425 - INFO - feat_dropout: 0.1
+2025-08-09 15:06:45,425 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-09 15:06:45,425 - INFO - log_interval: 5
+2025-08-09 15:06:45,425 - INFO - k: 1
+2025-08-09 15:06:45,425 - INFO - batshsize: 64
+2025-08-09 15:06:45,425 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-09 15:06:45,425 - INFO - output: ./results/
+2025-08-09 15:06:45,425 - INFO - =====================
+2025-08-09 15:07:00,305 - INFO - Starting training for dataset: nips
+2025-08-09 15:07:00,305 - INFO - Using configuration: nips.yaml
+2025-08-09 15:07:00,794 - INFO - 
+=== Configuration ===
+2025-08-09 15:07:00,794 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-09 15:07:00,794 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-09 15:07:00,794 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-09 15:07:00,794 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-09 15:07:00,794 - INFO - train: dataset/nips/train.txt
+2025-08-09 15:07:00,794 - INFO - valid: dataset/nips/valid.txt
+2025-08-09 15:07:00,795 - INFO - test: dataset/nips/test.txt
+2025-08-09 15:07:00,795 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-09 15:07:00,795 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-09 15:07:00,795 - INFO - dataset: nips
+2025-08-09 15:07:00,795 - INFO - proj_dim: 768
+2025-08-09 15:07:00,795 - INFO - temperature: 0.1
+2025-08-09 15:07:00,795 - INFO - momentum: 0.999
+2025-08-09 15:07:00,795 - INFO - queue_size: 1024
+2025-08-09 15:07:00,795 - INFO - LightGCN_lr: 0.01
+2025-08-09 15:07:00,795 - INFO - contrastive_lr: 0.001
+2025-08-09 15:07:00,795 - INFO - lambda_a: 0.1
+2025-08-09 15:07:00,795 - INFO - lambda_b: 10
+2025-08-09 15:07:00,795 - INFO - feat_dropout: 0.1
+2025-08-09 15:07:00,795 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-09 15:07:00,795 - INFO - log_interval: 5
+2025-08-09 15:07:00,795 - INFO - k: 1
+2025-08-09 15:07:00,795 - INFO - batshsize: 64
+2025-08-09 15:07:00,795 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-09 15:07:00,795 - INFO - output: ./results/
+2025-08-09 15:07:00,795 - INFO - =====================
+2025-08-09 15:07:02,010 - INFO - Epoch 1: Loss 9.6382, LGCN loss 0.692173, Contrastive loss 13.275562, Rec loss 1.388904
+2025-08-09 15:07:02,124 - INFO - Epoch 2: Loss 9.6897, LGCN loss 0.689580, Contrastive loss 13.895679, Rec loss 1.404296
+2025-08-09 15:07:02,218 - INFO - Epoch 3: Loss 9.6781, LGCN loss 0.688838, Contrastive loss 13.889416, Rec loss 1.400750
+2025-08-09 15:07:02,320 - INFO - Epoch 4: Loss 9.6673, LGCN loss 0.688098, Contrastive loss 13.888932, Rec loss 1.397418
+2025-08-09 15:07:02,426 - INFO - Epoch 5: Loss 9.6515, LGCN loss 0.686992, Contrastive loss 13.879208, Rec loss 1.393667
+2025-08-09 15:07:02,521 - INFO - Epoch 6: Loss 9.6354, LGCN loss 0.685605, Contrastive loss 13.858682, Rec loss 1.393435
+2025-08-09 15:07:02,629 - INFO - Epoch 7: Loss 9.6158, LGCN loss 0.684048, Contrastive loss 13.838541, Rec loss 1.391484
+2025-08-09 15:07:02,737 - INFO - Epoch 8: Loss 9.5992, LGCN loss 0.682367, Contrastive loss 13.837791, Rec loss 1.391769
+2025-08-09 15:07:02,840 - INFO - Epoch 9: Loss 9.5777, LGCN loss 0.680560, Contrastive loss 13.819481, Rec loss 1.390169
+2025-08-09 15:07:02,981 - INFO - Epoch 10: Loss 9.5535, LGCN loss 0.678606, Contrastive loss 13.791877, Rec loss 1.388284
+2025-08-09 15:08:36,533 - INFO - Starting training for dataset: nips
+2025-08-09 15:08:36,534 - INFO - Using configuration: nips.yaml
+2025-08-09 15:09:37,833 - INFO - Starting training for dataset: nips
+2025-08-09 15:09:37,833 - INFO - Using configuration: nips.yaml
+2025-08-09 15:09:38,364 - INFO - 
+=== Configuration ===
+2025-08-09 15:09:38,364 - INFO - reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+2025-08-09 15:09:38,364 - INFO - reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+2025-08-09 15:09:38,364 - INFO - reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+2025-08-09 15:09:38,364 - INFO - submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+2025-08-09 15:09:38,364 - INFO - train: dataset/nips/train.txt
+2025-08-09 15:09:38,364 - INFO - valid: dataset/nips/valid.txt
+2025-08-09 15:09:38,364 - INFO - test: dataset/nips/test.txt
+2025-08-09 15:09:38,364 - INFO - reviewer: dataset/nips/NIPS_reviewers.jsonl
+2025-08-09 15:09:38,364 - INFO - submission: dataset/nips/NIPS_papers.jsonl
+2025-08-09 15:09:38,364 - INFO - dataset: nips
+2025-08-09 15:09:38,364 - INFO - proj_dim: 768
+2025-08-09 15:09:38,364 - INFO - sen_dim: 768
+2025-08-09 15:09:38,364 - INFO - str_dim: 64
+2025-08-09 15:09:38,364 - INFO - temperature: 0.1
+2025-08-09 15:09:38,365 - INFO - momentum: 0.999
+2025-08-09 15:09:38,365 - INFO - queue_size: 1024
+2025-08-09 15:09:38,365 - INFO - LightGCN_lr: 0.01
+2025-08-09 15:09:38,365 - INFO - contrastive_lr: 0.001
+2025-08-09 15:09:38,365 - INFO - lambda_a: 0.1
+2025-08-09 15:09:38,365 - INFO - lambda_b: 10
+2025-08-09 15:09:38,365 - INFO - feat_dropout: 0.1
+2025-08-09 15:09:38,365 - INFO - item.ranking.topN: [20, 10, 5]
+2025-08-09 15:09:38,365 - INFO - log_interval: 5
+2025-08-09 15:09:38,365 - INFO - k: 1
+2025-08-09 15:09:38,365 - INFO - batshsize: 64
+2025-08-09 15:09:38,365 - INFO - LightGCN: {'n_layer': 3, 'LightGCN_emb_size': 64}
+2025-08-09 15:09:38,365 - INFO - output: ./results/
+2025-08-09 15:09:38,365 - INFO - =====================
+2025-08-09 15:09:39,573 - INFO - Epoch 1: Loss 9.6382, LGCN loss 0.692173, Contrastive loss 13.275562, Rec loss 1.388904
+2025-08-09 15:09:39,689 - INFO - Epoch 2: Loss 9.6897, LGCN loss 0.689580, Contrastive loss 13.895679, Rec loss 1.404296
+2025-08-09 15:09:39,793 - INFO - Epoch 3: Loss 9.6781, LGCN loss 0.688838, Contrastive loss 13.889416, Rec loss 1.400750
+2025-08-09 15:09:39,883 - INFO - Epoch 4: Loss 9.6673, LGCN loss 0.688098, Contrastive loss 13.888932, Rec loss 1.397418
+2025-08-09 15:09:39,974 - INFO - Epoch 5: Loss 9.6515, LGCN loss 0.686992, Contrastive loss 13.879208, Rec loss 1.393667
+2025-08-09 15:09:40,070 - INFO - Epoch 6: Loss 9.6354, LGCN loss 0.685605, Contrastive loss 13.858682, Rec loss 1.393435
+2025-08-09 15:09:40,174 - INFO - Epoch 7: Loss 9.6158, LGCN loss 0.684048, Contrastive loss 13.838541, Rec loss 1.391484
+2025-08-09 15:09:40,290 - INFO - Epoch 8: Loss 9.5992, LGCN loss 0.682367, Contrastive loss 13.837791, Rec loss 1.391769

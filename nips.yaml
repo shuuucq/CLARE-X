@@ -1,0 +1,33 @@
+reviewer_profile_bert: dataset/nips/NIPS_reviewer_profile_bert.jsonl
+reviewer_write_bert: dataset/nips/NIPS_reviewer_write_bert.jsonl
+reviewer_review_bert: dataset/nips/NIPS_reviewer_review_bert.jsonl
+submission_bert: dataset/nips/NIPS_submission_bert.jsonl
+train: dataset/nips/train.txt
+valid: dataset/nips/valid.txt
+test: dataset/nips/test.txt
+reviewer: dataset/nips/NIPS_reviewers.jsonl
+submission: dataset/nips/NIPS_papers.jsonl
+
+dataset: nips
+proj_dim: 768
+sen_dim: 768
+str_dim: 64
+temperature: 0.1
+momentum: 0.999
+queue_size: 1024
+LightGCN_lr: 0.01
+contrastive_lr: 0.001
+lambda_a: 0.1
+lambda_b: 10
+feat_dropout: 0.1
+item.ranking.topN: [20,10,5]
+log_interval: 5
+k: 1
+batshsize: 64
+
+LightGCN:
+  n_layer: 3
+  LightGCN_emb_size: 64
+
+
+output: ./results/
