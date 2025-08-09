@@ -94,18 +94,17 @@ def kl_divergence(p_logit, q_logit):
     return torch.mean(kl)
 
 def bce_loss(user_emb, pos_item_emb, neg_item_emb):
-    # 计算正样本和负样本的分数
-    pos_score = torch.sigmoid(torch.mul(user_emb, pos_item_emb).sum(dim=1))  # 正样本分数
-    neg_score = torch.sigmoid(torch.mul(user_emb, neg_item_emb).sum(dim=1))  # 负样本分数
 
-    # 构造标签，正样本为1，负样本为0
-    pos_labels = torch.ones_like(pos_score)  # 正样本标签为1
-    neg_labels = torch.zeros_like(neg_score)  # 负样本标签为0
+    pos_score = torch.sigmoid(torch.mul(user_emb, pos_item_emb).sum(dim=1)) 
+    neg_score = torch.sigmoid(torch.mul(user_emb, neg_item_emb).sum(dim=1)) 
 
-    # 计算正样本和负样本的损失
-    pos_loss = -pos_labels * torch.log(pos_score + 1e-6)  # 避免log(0)
-    neg_loss = -(1 - neg_labels) * torch.log(1 - neg_score + 1e-6)  # 避免log(0)
 
-    # 总的损失为正样本和负样本的损失之和
+    pos_labels = torch.ones_like(pos_score) 
+    neg_labels = torch.zeros_like(neg_score) 
+
+
+    pos_loss = -pos_labels * torch.log(pos_score + 1e-6) 
+    neg_loss = -(1 - neg_labels) * torch.log(1 - neg_score + 1e-6)  
+
     loss = pos_loss + neg_loss
     return torch.mean(loss)
